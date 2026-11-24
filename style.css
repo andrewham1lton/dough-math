@@ -1,0 +1,66 @@
+@font-face {
+  font-family: "Martian Mono";
+  src: url("fonts/MartianMono.ttf") format("truetype");
+  font-weight: 100 800;
+  font-stretch: 75% 112.5%;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Anybody";
+  src: url("fonts/Anybody.ttf") format("truetype");
+  font-weight: 100 900;
+  font-stretch: 50% 150%;
+  font-display: swap;
+}
+:root {
+  --paper: #F5EFE0;
+  --counter: #23211E;
+  --slot: #171614;
+  --ink: #1C1713;
+  --faded: #5E554B;
+  --counter-print: #F5EFE0;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #443C32;
+    --counter: #131211;
+    --slot: #060505;
+    --ink: #F5EFE0;
+    --faded: #B9AE9D;
+    --counter-print: #F5EFE0;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--counter);
+  color: var(--ink);
+  font: 400 15px/1.6 "Martian Mono", ui-monospace, Menlo, monospace;
+  font-stretch: 75%;
+  font-variant-numeric: tabular-nums;
+}
+.counter { max-width: 600px; margin: 0 auto; padding: 24px 16px 64px; }
+nav { display: flex; gap: 20px; align-items: baseline; padding: 0 18px 14px; }
+nav a { color: var(--counter-print); text-decoration: none; }
+nav a:hover, nav a:focus-visible { text-decoration: underline; }
+nav .name { font-weight: 700; margin-right: auto; }
+.slot { height: 8px; background: var(--slot); }
+.slip { background: var(--paper); padding: 28px 18px 36px; }
+.tear {
+  height: 10px;
+  background: var(--paper);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 97.5% 0, 95% 100%, 92.5% 0, 90% 100%, 87.5% 0, 85% 100%, 82.5% 0, 80% 100%, 77.5% 0, 75% 100%, 72.5% 0, 70% 100%, 67.5% 0, 65% 100%, 62.5% 0, 60% 100%, 57.5% 0, 55% 100%, 52.5% 0, 50% 100%, 47.5% 0, 45% 100%, 42.5% 0, 40% 100%, 37.5% 0, 35% 100%, 32.5% 0, 30% 100%, 27.5% 0, 25% 100%, 22.5% 0, 20% 100%, 17.5% 0, 15% 100%, 12.5% 0, 10% 100%, 7.5% 0, 5% 100%, 2.5% 0, 0 100%);
+  margin-top: -1px;
+}
+h1 {
+  font: 900 40px/1.05 "Anybody", "Arial Narrow", sans-serif;
+  font-stretch: 62%;
+  margin: 0 0 6px;
+}
+h2 { font-size: 16px; font-weight: 700; line-height: 1.4; margin: 28px 0 4px; }
+p, ul { margin: 0 0 12px; }
+ul { padding-left: 20px; }
+a { color: var(--ink); text-underline-offset: 3px; }
+.faded { color: var(--faded); font-size: 13px; }
+.band { background: var(--ink); color: var(--paper); padding: 16px 18px; margin: 20px -18px 4px; }
+.band p { margin: 0; }
