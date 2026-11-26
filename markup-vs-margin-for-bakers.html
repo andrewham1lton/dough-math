@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Markup vs margin for bakers, in plain arithmetic</title>
+<meta name="description" content="Markup is measured against the cost and margin against the price. Why a 50% markup isn&#x27;t a 50% margin, how to convert one to the other, and a table for bakers.">
+<link rel="canonical" href="https://andrewham1lton.github.io/dough-math/markup-vs-margin-for-bakers.html">
+<meta name="apple-itunes-app" content="app-id=6837884777">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Dough Math">
+<meta property="og:title" content="Markup vs margin for bakers, in plain arithmetic">
+<meta property="og:description" content="Markup is measured against the cost and margin against the price. Why a 50% markup isn&#x27;t a 50% margin, how to convert one to the other, and a table for bakers.">
+<meta property="og:url" content="https://andrewham1lton.github.io/dough-math/markup-vs-margin-for-bakers.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="counter">
+<nav><a class="name" href="./">Dough Math</a><a href="./#guides">Guides</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a></nav>
+<div class="slot"></div>
+<main class="slip">
+  <h1>Markup and margin</h1>
+  <p class="lede">Both describe the gap between what a bake costs you and what you charge. They measure that gap against different things, so the same gap gives two different percentages.</p>
+
+  <h2>Markup is measured against the cost</h2>
+  <p>Markup = (price − cost) ÷ cost.</p>
+  <p>A cake that costs $20 and sells for $30 has a $10 gap. $10 ÷ $20 is a 50% markup.</p>
+
+  <h2>Margin is measured against the price</h2>
+  <p>Margin = (price − cost) ÷ price.</p>
+  <p>The same cake: $10 ÷ $30 is a 33.3% margin. On any bake with a gap, the margin is the smaller of the two percentages.</p>
+
+  <h2>Pricing from a margin</h2>
+  <p>To reach a margin, divide the cost: price = cost ÷ (1 − margin). For a 50% margin on a $20 cake, $20 ÷ 0.50 = $40.</p>
+  <p>The common slip is adding the margin percentage to the cost. Adding 50% to $20 gives $30, which is a 33.3% margin, a third less than meant.</p>
+
+  <table>
+    <caption>A $20 cost at each margin</caption>
+    <thead><tr><th scope="col">Margin</th><th scope="col" class="fig">Same as a markup of</th><th scope="col" class="fig">Price</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">20%</th><td class="fig">25.0%</td><td class="fig">$25.00</td></tr>
+      <tr><th scope="row">25%</th><td class="fig">33.3%</td><td class="fig">$26.67</td></tr>
+      <tr><th scope="row">30%</th><td class="fig">42.9%</td><td class="fig">$28.58</td></tr>
+      <tr><th scope="row">40%</th><td class="fig">66.7%</td><td class="fig">$33.34</td></tr>
+      <tr><th scope="row">50%</th><td class="fig">100.0%</td><td class="fig">$40.00</td></tr>
+      <tr><th scope="row">60%</th><td class="fig">150.0%</td><td class="fig">$50.00</td></tr>
+      <tr><th scope="row">70%</th><td class="fig">233.3%</td><td class="fig">$66.67</td></tr>
+    </tbody>
+  </table>
+  <p class="faded">Prices round up to the cent.</p>
+
+  <h2>Converting one to the other</h2>
+  <ul>
+    <li>Margin = markup ÷ (1 + markup)</li>
+    <li>Markup = margin ÷ (1 − margin)</li>
+  </ul>
+  <p>A 100% markup, doubling the cost, is a 50% margin. Use whichever you like, as long as you know which one you mean.</p>
+
+  <h2>Why a margin can&#x27;t reach 100%</h2>
+  <p>A 100% margin would mean the bake cost nothing. As the margin climbs toward it, the price climbs without limit: at 90% the price is ten times the cost, and at 95% twenty times. Dough Math and the <a href="cake-pricing-calculator.html">calculator on this site</a> stop at 94.9%.</p>
+
+  <h2>Start from the whole cost</h2>
+  <p>Either percentage is only as good as the cost under it. If the cost leaves out your time or the box, the margin looks bigger than it is. Count <a href="labor-cost-in-baking.html">your time</a>, <a href="overhead-and-packaging-costs.html">overhead and packaging</a> as well as the ingredients.</p>
+
+  <h2>Where Dough Math fits</h2>
+  <div class="fits">
+    <p>Dough Math works by margin. Set a target margin for each recipe and it shows the suggested price and the price per piece, rounded up to the cent.</p>
+    <p>Labor minutes at your hourly rate, packaging and overhead count toward the cost, so the margin is measured against the whole cost, not the flour alone.</p>
+    <p><a class="store" href="https://apps.apple.com/app/apple-store/id6837884777?pt=128607626&amp;ct=site-markup-vs-margin&amp;mt=8">Get Dough Math on the App Store</a></p>
+  </div>
+</main>
+<div class="tear"></div>
+<footer>
+  <p>Dough Math shows your costs and a suggested price from the figures you enter. The prices you charge are yours to decide.</p>
+  <p><a href="./">Dough Math</a> · <a href="./#guides">Guides</a> · <a href="support.html">Support</a> · <a href="privacy.html">Privacy policy</a></p>
+  <p>Apple and iPhone are trademarks of Apple Inc. App Store is a service mark of Apple Inc.</p>
+</footer>
+</div>
+</body>
+</html>

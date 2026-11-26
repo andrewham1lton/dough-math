@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free cake pricing calculator for home bakers</title>
+<meta name="description" content="Work out what a cake or any bake costs, from ingredients, your time, packaging and overhead, and the price that leaves the margin you choose. Free, in your browser, nothing to install.">
+<link rel="canonical" href="https://andrewham1lton.github.io/dough-math/cake-pricing-calculator.html">
+<meta name="apple-itunes-app" content="app-id=6837884777">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Dough Math">
+<meta property="og:title" content="Free cake pricing calculator for home bakers">
+<meta property="og:description" content="Work out what a cake or any bake costs, from ingredients, your time, packaging and overhead, and the price that leaves the margin you choose. Free, in your browser, nothing to install.">
+<meta property="og:url" content="https://andrewham1lton.github.io/dough-math/cake-pricing-calculator.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="counter">
+<nav><a class="name" href="./">Dough Math</a><a href="./#guides">Guides</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a></nav>
+<div class="slot"></div>
+<main class="slip">
+  <h1>Cake pricing calculator</h1>
+  <p class="lede">Type in what a bake costs you and the margin you want. The price is worked out as you type, the same way Dough Math works it out. It runs in your browser and sends nothing.</p>
+
+  <form class="calc" id="calc">
+    <fieldset>
+      <legend class="faded">The figures filled in are an example. Change any of them.</legend>
+    <div class="field"><label for="ingredients">Ingredients, $</label><input id="ingredients" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="14.20" aria-describedby="h-ingredients"></div>
+    <p class="hint" id="h-ingredients">What this bake&#x27;s ingredients cost you. <a href="recipe-cost-from-bag-prices.html">How to work it out</a>.</p>
+    <div class="field"><label for="minutes">Your time, minutes</label><input id="minutes" type="text" inputmode="numeric" autocomplete="off" spellcheck="false" value="90" aria-describedby="h-minutes"></div>
+    <p class="hint" id="h-minutes">Every minute the bake needs from you.</p>
+    <div class="field"><label for="rate">Hourly rate, $</label><input id="rate" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="20.00" aria-describedby="h-rate"></div>
+    <p class="hint" id="h-rate">What an hour of your time is worth to you.</p>
+    <div class="field"><label for="packaging">Packaging, $</label><input id="packaging" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="3.50" aria-describedby="h-packaging"></div>
+    <p class="hint" id="h-packaging">The box, board, liner and ribbon.</p>
+    <div class="field"><label for="overhead">Overhead, %</label><input id="overhead" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="10" aria-describedby="h-overhead"></div>
+    <p class="hint" id="h-overhead">Power, tools and fees, as a share of ingredients and labor.</p>
+    <div class="field"><label for="margin">Target margin, %</label><input id="margin" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" value="30" aria-describedby="h-margin"></div>
+    <p class="hint" id="h-margin">The share of the price left once the cost is covered.</p>
+    <div class="field"><label for="pieces">Servings or pieces</label><input id="pieces" type="text" inputmode="numeric" autocomplete="off" spellcheck="false" value="12" aria-describedby="h-pieces"></div>
+    <p class="hint" id="h-pieces">Leave blank to price the whole bake only.</p>
+    </fieldset>
+  </form>
+
+  <section>
+    <p class="line"><span>Ingredients</span><span class="lead" aria-hidden="true"></span><span class="fig"><output id="o-ing" for="ingredients">$14.20</output></span></p>
+    <p class="line"><span><span id="o-labor-name">Labor, 90 min</span><br><span class="note"><span id="o-labor-note">At $20.00 an hour</span></span></span><span class="lead" aria-hidden="true"></span><span class="fig"><output id="o-labor" for="minutes rate">$30.00</output></span></p>
+    <p class="line"><span>Packaging</span><span class="lead" aria-hidden="true"></span><span class="fig"><output id="o-pack" for="packaging">$3.50</output></span></p>
+    <p class="line"><span><span id="o-oh-name">Overhead, 10%</span></span><span class="lead" aria-hidden="true"></span><span class="fig"><output id="o-oh" for="overhead">$4.42</output></span></p>
+    <p class="line sum"><span>Batch cost</span><span class="lead" aria-hidden="true"></span><span class="fig"><output id="o-total">$52.12</output></span></p>
+    <div class="band" aria-live="polite" aria-atomic="true">
+      <p class="line"><span id="o-price-name">Price at 30% margin</span><span class="lead" aria-hidden="true"></span><span class="fig big" id="o-price">$74.46</span></p>
+      <p id="o-piece" style="margin-top:12px">$6.21 a piece across 12. Each costs $4.34.</p>
+    </div>
+    <noscript><p style="margin-top:16px">The live figures need JavaScript. The formula below works just as well on paper.</p></noscript>
+  </section>
+
+  <h2>How the price is worked out</h2>
+  <ul>
+    <li>Labor = minutes ÷ 60 × hourly rate</li>
+    <li>Overhead = (ingredients + labor) × overhead %</li>
+    <li>Batch cost = ingredients + labor + packaging + overhead</li>
+    <li>Price = batch cost ÷ (1 − margin)</li>
+  </ul>
+  <p>Each part rounds to the nearest cent, and the batch cost is the sum of the rounded parts. The price rounds up to the cent, so it never falls short of the margin you asked for. Overhead is taken on ingredients and labor only, because packaging is already counted at what it cost.</p>
+  <p>The example works like this. Labor is 90 ÷ 60 × $20.00 = $30.00. Overhead is ($14.20 + $30.00) × 10% = $4.42. The batch cost is $14.20 + $30.00 + $3.50 + $4.42 = $52.12. At a 30% margin the price is $52.12 ÷ 0.70 = $74.46, or $6.21 a slice when the cake serves 12.</p>
+
+  <h2>Why the margin divides</h2>
+  <p>A 30% margin means 30% of the price is left once the cost is covered, so the cost is the other 70%. Dividing by 0.70 gets you there. Adding 30% to the cost gives $67.76 instead, which is a margin of about 23%. <a href="markup-vs-margin-for-bakers.html">Markup and margin, side by side</a>.</p>
+  <p>The closer the margin gets to 100%, the faster the price climbs, and at 100% no price works. So a margin of 95% or more is worked out at 94.9%.</p>
+
+  <h2>Filling it in</h2>
+  <p>The ingredients figure is the one to get right first. <a href="recipe-cost-from-bag-prices.html">Cost a recipe from the bags you buy</a>, and use <a href="grams-per-cup-baking.html">grams per cup</a> when the recipe is in cups. For the rest, read <a href="labor-cost-in-baking.html">counting your time</a> and <a href="overhead-and-packaging-costs.html">overhead and packaging</a>.</p>
+  <p>The calculator does arithmetic. It can&#x27;t tell you what customers near you will pay, and the price you charge is yours to decide.</p>
+
+  <h2>What this page does with your data</h2>
+  <p>Nothing. The figures are worked out in your browser. The page sends nothing, stores nothing, sets no cookies and needs no account. Close it and the figures are gone.</p>
+
+  <h2>Where Dough Math fits</h2>
+  <div class="fits">
+    <p>This calculator needs you to know what the ingredients cost. Dough Math works that out: enter each pantry item once, the way you bought it, write the recipe in cups or grams, and it shows the batch cost and a suggested price at the margin you choose.</p>
+    <p>Labor minutes at your hourly rate, packaging and overhead count toward the cost, the same way they do here. When butter goes up, change it once and every recipe that uses it shows the new cost.</p>
+    <p><a class="store" href="https://apps.apple.com/app/apple-store/id6837884777?pt=128607626&amp;ct=site-calculator&amp;mt=8">Get Dough Math on the App Store</a></p>
+  </div>
+</main>
+<div class="tear"></div>
+<footer>
+  <p>Dough Math shows your costs and a suggested price from the figures you enter. The prices you charge are yours to decide.</p>
+  <p><a href="./">Dough Math</a> · <a href="./#guides">Guides</a> · <a href="support.html">Support</a> · <a href="privacy.html">Privacy policy</a></p>
+  <p>Apple and iPhone are trademarks of Apple Inc. App Store is a service mark of Apple Inc.</p>
+</footer>
+</div>
+<script>
+(function () {
+  "use strict";
+  // The formulas of Dough Math's CostingCalculator (spec section 5), in whole cents with exact fractions.
+  var HUNDRED = BigInt(100);
+  var form = document.getElementById("calc");
+  var kinds = {
+    ingredients: "money", minutes: "whole", rate: "money", packaging: "money",
+    overhead: "percent", margin: "percent", pieces: "whole"
+  };
+  var problems = {
+    money: "Type an amount, such as 12.50.",
+    whole: "Type a whole number, such as 90.",
+    percent: "Type a percentage, such as 30."
+  };
+  var inputs = {}, hints = {};
+  Object.keys(kinds).forEach(function (id) {
+    inputs[id] = document.getElementById(id);
+    hints[id] = document.getElementById("h-" + id);
+    hints[id].setAttribute("data-hint", hints[id].innerHTML);
+  });
+  function show(id, text) {
+    document.getElementById(id).textContent = text;
+  }
+
+  // A typed number as an exact fraction {num, den, places}; {num: 0} when blank; null when it isn't a number.
+  function parse(text, kind) {
+    var clean = text.replace(/[$,%\s]/g, "");
+    if (clean === "") {
+      return { num: BigInt(0), den: BigInt(1), places: 0, blank: true };
+    }
+    var match = /^(\d{0,9})(?:\.(\d{0,6}))?$/.exec(clean);
+    if (!match || (match[1] === "" && !match[2])) {
+      return null;
+    }
+    var decimals = match[2] || "";
+    if (kind === "whole" && /[1-9]/.test(decimals)) {
+      return null;
+    }
+    var den = BigInt(1);
+    for (var i = 0; i < decimals.length; i += 1) {
+      den *= BigInt(10);
+    }
+    return { num: BigInt((match[1] || "0") + decimals), den: den, places: decimals.length };
+  }
+  function nearest(num, den) {
+    return (BigInt(2) * num + den) / (BigInt(2) * den);
+  }
+  function roundUp(num, den) {
+    return (num + den - BigInt(1)) / den;
+  }
+  function dollars(cents) {
+    var text = cents.toString();
+    while (text.length < 3) {
+      text = "0" + text;
+    }
+    var whole = text.slice(0, -2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return "$" + whole + "." + text.slice(-2);
+  }
+  function percent(value) {
+    var text = value.num.toString();
+    if (value.places > 0) {
+      while (text.length <= value.places) {
+        text = "0" + text;
+      }
+      text = (text.slice(0, -value.places) + "." + text.slice(-value.places)).replace(/\.?0+$/, "");
+    }
+    return text + "%";
+  }
+
+  function update() {
+    var values = {}, broken = false;
+    Object.keys(kinds).forEach(function (id) {
+      var value = parse(inputs[id].value, kinds[id]);
+      if (value === null) {
+        broken = true;
+        inputs[id].setAttribute("aria-invalid", "true");
+        hints[id].textContent = problems[kinds[id]];
+        hints[id].className = "hint problem";
+      } else {
+        inputs[id].removeAttribute("aria-invalid");
+        hints[id].innerHTML = hints[id].getAttribute("data-hint");
+        hints[id].className = "hint";
+      }
+      values[id] = value;
+    });
+    if (broken) {
+      ["o-ing", "o-labor", "o-pack", "o-oh", "o-total", "o-price"].forEach(function (id) {
+        show(id, "?");
+      });
+      show("o-piece", "Check the figure marked above.");
+      return;
+    }
+
+    var ingredients = nearest(values.ingredients.num * HUNDRED, values.ingredients.den);
+    var minutes = values.minutes.num / values.minutes.den;
+    var labor = nearest(minutes * values.rate.num * HUNDRED, BigInt(60) * values.rate.den);
+    var packaging = nearest(values.packaging.num * HUNDRED, values.packaging.den);
+    var overhead = nearest((ingredients + labor) * values.overhead.num, values.overhead.den * HUNDRED);
+    var total = ingredients + labor + packaging + overhead;
+
+    var margin = values.margin;
+    var clamped = margin.num >= BigInt(95) * margin.den;
+    if (clamped) {
+      margin = { num: BigInt(949), den: BigInt(10), places: 1 };
+    }
+    var keep = HUNDRED * margin.den - margin.num;
+    var price = roundUp(total * HUNDRED * margin.den, keep);
+
+    show("o-ing", dollars(ingredients));
+    show("o-labor-name", "Labor, " + minutes.toString() + " min");
+    show("o-labor-note", "At " + dollars(nearest(values.rate.num * HUNDRED, values.rate.den)) + " an hour");
+    show("o-labor", dollars(labor));
+    show("o-pack", dollars(packaging));
+    show("o-oh-name", "Overhead, " + percent(values.overhead));
+    show("o-oh", dollars(overhead));
+    show("o-total", dollars(total));
+    show("o-price-name", "Price at " + percent(margin) + " margin");
+    show("o-price", dollars(price));
+    if (clamped) {
+      hints.margin.textContent = "Worked out at 94.9%. At 95% or more the price climbs without limit.";
+    }
+
+    var pieces = values.pieces.num / values.pieces.den;
+    if (pieces > BigInt(0)) {
+      var each = roundUp(total * HUNDRED * margin.den, keep * pieces);
+      show("o-piece", dollars(each) + " a piece across " + pieces.toString() + ". Each costs " +
+        dollars(nearest(total, pieces)) + ".");
+    } else {
+      show("o-piece", "Add servings or pieces to see the price of one.");
+    }
+  }
+
+  form.addEventListener("input", update);
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+  });
+  update();
+})();
+</script>
+</body>
+</html>
